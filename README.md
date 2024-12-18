@@ -76,3 +76,25 @@ Apply the Deployment .
 
 kubectl apply -f opensearch-deployment.yaml
 
+Step 7: Expose OpenSearch (Optional)
+If you want OpenSearch to be accessible from outside the Kubernetes cluster (i.e., for public or internal access), you may want to create an Ingress or use a LoadBalancer service.
+
+kubectl apply -f opensearch-service.yaml
+
+Step 8: Verify the OpenSearch Installation
+You can verify the installation by checking the pods:
+
+
+kubectl get pods --namespace opensearch
+To access the OpenSearch REST API, you can port-forward:
+
+
+kubectl port-forward svc/opensearch 9200:9200 --namespace opensearch
+Then you can access OpenSearch at http://localhost:9200.
+
+Step 9: Monitor and Scale the OpenSearch Cluster
+You can monitor your OpenSearch cluster via the Kubernetes Dashboard or using kubectl commands to check the status of the pods, services, and nodes. You can also scale the OpenSearch deployment by changing the replicas field in the deployment manifest and re-applying it.
+
+
+kubectl scale deployment opensearch --replicas=5 --namespace opensearch
+
