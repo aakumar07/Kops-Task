@@ -71,3 +71,8 @@ helm install opensearch opensearch/opensearch --namespace opensearch --create-na
 This will deploy OpenSearch in a Kubernetes namespace called opensearch.
 
 Option 2: Deploy OpenSearch with Kubernetes Manifests
+
+Apply the Deployment .
+
+kubectl apply -f opensearch-deployment.yaml
+
